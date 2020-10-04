@@ -12,7 +12,7 @@ const MEETUP_ID = 6;
  * @return {string} - ссылка на изображение митапа
  */
 function getMeetupCoverLink(meetup) {
-  return meetup.imageId ? `${API_URL}/images/${meetup.imageId}` : '';
+  return meetup.imageId ? `${API_URL}/images/${meetup.imageId}` : undefined;
 }
 
 /**
@@ -46,11 +46,12 @@ const agendaItemIcons = {
 
 export const app = new Vue({
   el: '#app',
-
-  data: {
-    meetup: {},
-    hasNoAgenda: true,
-    agendaFormatted: [],
+  data() {
+    return {
+      meetup: {},
+      hasNoAgenda: true,
+      agendaFormatted: [],
+    };
   },
 
   mounted() {
@@ -59,15 +60,17 @@ export const app = new Vue({
   },
 
   computed: {
-    meetupImageUrl() {
-      return `url(${getMeetupCoverLink(this.meetup)})`;
+    meetupStyle() {
+      const url = getMeetupCoverLink(this.meetup);
+      return url ? { '--bg-url': `url('${url}')` } : {};
     },
     meetupLocalDate() {
-      return new Date(this.meetup.date).toLocaleString(navigator.language, {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      });
+      return this.meetup.date ?
+        new Date(this.meetup.date).toLocaleString(navigator.language, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        }) : null;
     },
   },
 
