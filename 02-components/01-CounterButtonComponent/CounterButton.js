@@ -1,6 +1,6 @@
 export const CounterButton = {
   // Шаблон потребуется отредактировать
-  template: '<button type="button" :count="count" @click="inc">{{count}}</button>',
+  template: '<button type="button" @click="inc">{{count}}</button>',
   model: {
     prop: 'count',
     event: 'increment'
