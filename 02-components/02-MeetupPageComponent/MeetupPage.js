@@ -25,7 +25,7 @@ export const MeetupPage = {
     },
   },
 
-  template: `<div><meetup-view :meetup="meetup"></meetup-view></div>`,
+  template: `<div><meetup-view v-if="meetup" :meetup="meetup"></meetup-view></div>`,
 
   // components
 
