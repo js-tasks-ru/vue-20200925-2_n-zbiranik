@@ -1,16 +1,39 @@
 <template>
   <div class="content-tabs">
     <div class="content-tabs__nav">
-      <a href="#" class="content-tabs__tab">Page A</a>
-      <a href="#" class="content-tabs__tab">Page B</a>
+      <router-link v-for="tab in tabsPrepared" :to="tab.to" class="content-tabs__tab" :class="{'content-tabs__tab_active': $route.matched.some(route => tab.to)}">{{tab.text}}</router-link>
     </div>
-    <div class="content-tabs__content">Content</div>
+    <div class="content-tabs__content"><slot/></div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'ContentTabs',
+  props: {
+    tabs: {
+      type: Array,
+      required: true,
+      default: () => []
+    }
+  },
+  computed: {
+    currentPath() {
+      return this.$route.path;
+    },
+    tabsPrepared() {
+      const router = this.$router;
+      return this.tabs.map((tab) => ({
+        ...tab,
+        route: router.resolve(tab.to),
+      }));
+    }
+  },
+  watch: {
+    currentPath() {
+      return this.$route.path;
+    },
+  }
 };
 </script>
 
