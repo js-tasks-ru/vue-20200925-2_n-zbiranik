@@ -17,6 +17,11 @@ export default {
       default: () => []
     }
   },
+  mounted() {
+    if (this.$router) {
+      this.$router.options.linkActiveClass = 'content-tabs__tab_active';
+    }
+  },
 };
 </script>
 
