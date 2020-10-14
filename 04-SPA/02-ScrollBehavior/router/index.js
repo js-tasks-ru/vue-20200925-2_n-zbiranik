@@ -33,8 +33,6 @@ export const router = new VueRouter({
 
   base: '/04-SPA/02-ScrollBehavior',
 
-  scrollBehavior,
-
   routes: [
     {
       path: '/',
