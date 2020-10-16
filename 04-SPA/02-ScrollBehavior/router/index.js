@@ -4,16 +4,8 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 export function scrollBehavior(to, from, savedPosition) {
-  let saveScrollPositionTo = null;
-  try {
-    saveScrollPositionTo = to.meta.saveScrollPosition;
-  } catch (e) {
-  }
-  let saveScrollPositionFrom = null;
-  try {
-    saveScrollPositionFrom = from.meta.saveScrollPosition;
-  } catch (e) {
-  }
+  const saveScrollPositionTo = to?.meta?.saveScrollPosition;
+  const saveScrollPositionFrom = from?.meta?.saveScrollPosition;
   if (saveScrollPositionTo && saveScrollPositionFrom) {
     return false;
   }
@@ -32,6 +24,8 @@ export const router = new VueRouter({
   mode: 'history',
 
   base: '/04-SPA/02-ScrollBehavior',
+
+  scrollBehavior,
 
   routes: [
     {
