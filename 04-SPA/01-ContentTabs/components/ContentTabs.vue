@@ -1,7 +1,7 @@
 <template>
   <div class="content-tabs">
     <div class="content-tabs__nav">
-      <router-link v-for="tab in tabs" :to="tab.to" class="content-tabs__tab">{{tab.text}}</router-link>
+      <router-link v-for="tab in tabs" :to="tab.to" class="content-tabs__tab" active-class="content-tabs__tab_active">{{tab.text}}</router-link>
     </div>
     <div class="content-tabs__content"><slot/></div>
   </div>
@@ -16,12 +16,7 @@ export default {
       required: true,
       default: () => []
     }
-  },
-  mounted() {
-    if (this.$router) {
-      this.$router.options.linkActiveClass = 'content-tabs__tab_active';
-    }
-  },
+  }
 };
 </script>
 
