@@ -1,8 +1,12 @@
 <template>
-  <div class="page page_onboarding page_meetup-forms">
-    <h1>{{ title }}</h1>
-    <div class="container"><slot/></div>
-  </div>
+  <main class="main">
+    <div class="page page_onboarding">
+      <div class="container">
+        <h1 class="page__title text-center">{{ title }}</h1>
+        <slot />
+      </div>
+    </div>
+  </main>
 </template>
 
 <script>
@@ -24,15 +28,7 @@ export default {
   margin: 0 auto;
 }
 
-.page.page_meetup-forms {
-  padding: 70px 0;
-}
-
 @media all and (max-width: 992px) {
-  .page.page_meetup-forms {
-    padding: 48px 0;
-  }
-
   .container {
     padding: 0 16px;
   }

@@ -1,5 +1,5 @@
 <template>
-  <form class="form" v-on:submit.prevent="login">
+  <form class="form" @submit.prevent="login">
     <div>
       <label for="email">Email</label>
       <input id="email" v-model="email" type="email" />
@@ -47,8 +47,8 @@ export default {
   },
   methods: {
     validateForm() {
-      this.hasErrors.email = this.email ? false : true;
-      this.hasErrors.password = this.password ? false : true;
+      this.hasErrors.email = !this.email;
+      this.hasErrors.password = !this.password;
       for (let key in this.hasErrors) {
         if (this.hasErrors[key] === true) {
           alert(this.errors[key]);

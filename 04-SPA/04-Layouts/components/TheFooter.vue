@@ -1,5 +1,8 @@
 <template>
-  <div class="footer">подвал</div>
+  <div class="container">
+    © 2020. learn.javascript.ru
+    <a href="https://learn.javascript.ru/courses/vue">Vue.js Course</a>
+  </div>
 </template>
 
 <script>

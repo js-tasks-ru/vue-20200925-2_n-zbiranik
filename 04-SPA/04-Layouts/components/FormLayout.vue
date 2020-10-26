@@ -1,8 +1,12 @@
 <template>
-  <div class="page page_onboarding">
-    <h1>{{ title }}</h1>
-    <div class="container"><slot/></div>
-  </div>
+  <main class="main">
+    <div class="page page_meetup-forms">
+      <div class="container">
+        <h2 class="page__title">{{ title }}</h2>
+        <slot />
+      </div>
+    </div>
+  </main>
 </template>
 
 <script>
@@ -18,12 +22,6 @@ export default {
 </script>
 
 <style scoped>
-.page.page_onboarding {
-  max-width: 374px;
-  width: 100%;
-  margin: 0 auto;
-}
-
 .page.page_meetup-forms {
   padding: 70px 0;
 }

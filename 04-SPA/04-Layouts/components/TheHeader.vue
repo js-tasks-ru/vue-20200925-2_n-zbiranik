@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div>
     <h1>Meetups</h1>
     <nav>
       <router-link :to="{ name: 'meetups' }">Митапы</router-link> |
