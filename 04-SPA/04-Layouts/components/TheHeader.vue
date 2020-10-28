@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <h1>Meetups</h1>
+  <div class="header">
+    <h1>
+      <a href="/" class="router-link-exact-active router-link-active">
+        <img src="../assets/logo.svg" alt="Meetups"/>
+      </a>
+    </h1>
     <nav>
       <router-link :to="{ name: 'meetups' }">Митапы</router-link> |
       <router-link :to="{ name: 'form' }">Создать митап</router-link> |
