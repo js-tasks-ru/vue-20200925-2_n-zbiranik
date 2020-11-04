@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <meetups-view :view="view" :date="query.date" :participation="query.participation" :search="query.search"
+    <meetups-view :view="query.view" :date="query.date" :participation="query.participation" :search="query.search"
                   @update:view="updateQuery($event, 'view')"
                   @update:date="updateQuery($event, 'date')"
                   @update:participation="updateQuery($event, 'participation')"
@@ -28,11 +28,6 @@ export default {
         search: DEFAULT_SEARCH,
       },
     };
-  },
-  computed: {
-    view() {
-      return this.query.view;
-    },
   },
   watch: {
     $route(to) {
