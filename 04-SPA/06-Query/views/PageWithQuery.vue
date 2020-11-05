@@ -22,10 +22,10 @@ export default {
   data() {
     return {
       query: {
-        view: DEFAULT_VIEW,
-        date: DEFAULT_DATE,
-        participation: DEFAULT_PARTICIPATION,
-        search: DEFAULT_SEARCH,
+        view: this.$route.query.view || DEFAULT_VIEW,
+        date: this.$route.query.date || DEFAULT_DATE,
+        participation: this.$route.query.participation || DEFAULT_PARTICIPATION,
+        search: this.$route.query.search || DEFAULT_SEARCH,
       },
     };
   },
